@@ -1,0 +1,17 @@
+platform :ios, '13.0'
+
+target 'trivia' do
+  use_frameworks!
+
+  # Pods for trivia
+
+  target 'triviaTests' do
+    inherit! :search_paths
+      pod 'ObjectMapper', '~> 4.2.0'    
+  end
+
+  target 'triviaUITests' do
+    # Pods for testing
+  end
+
+end
