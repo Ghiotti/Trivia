@@ -10,7 +10,7 @@ import ObjectMapper
 
 class Trivia: BaseModel {
 
-    var questions: [String]?
+    var questions: [Question]?
 
     required convenience init?(map: Map) {
         self.init()
