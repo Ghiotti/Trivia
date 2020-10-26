@@ -116,15 +116,26 @@ class QuestionnairePresenter {
             return ""
         }
 
+        let formatter = DateFormatter()
+        formatter.dateFormat = "yyyy-MM-dd"
+        let currentDate = formatter.string(from: Date())
+
         if firstPlayerCorrectAnswers == secondPlayerCorrectAnswers {
+            saveResults(result: "\(trivia.participantOne) \(firstPlayerCorrectAnswers)  \(secondPlayerCorrectAnswers) \(trivia.participantTwo)     \(currentDate)")
             return "Both players have obtained \(firstPlayerCorrectAnswers) points. It was a draw"
         }
 
         if firstPlayerCorrectAnswers > secondPlayerCorrectAnswers {
+            saveResults(result: "\(trivia.participantOne) \(firstPlayerCorrectAnswers)  \(secondPlayerCorrectAnswers) \(trivia.participantTwo)     \(currentDate)")
             return "The winner is \(trivia.participantOne) with \(firstPlayerCorrectAnswers) corrects answers, while \(trivia.participantTwo) got \(secondPlayerCorrectAnswers) correct answers"
         } else {
+            saveResults(result: "\(trivia.participantOne) \(firstPlayerCorrectAnswers)  \(secondPlayerCorrectAnswers) \(trivia.participantTwo)     \(currentDate)")
             return "The winner is \(trivia.participantTwo) with \(secondPlayerCorrectAnswers) corrects answers, while \(trivia.participantOne) got \(firstPlayerCorrectAnswers) correct answers"
         }
+    }
+
+    private func saveResults(result: String) {
+        CoreDataMannager().addResult(resultToSave: result)
     }
 
     private func setUpTrivia() {

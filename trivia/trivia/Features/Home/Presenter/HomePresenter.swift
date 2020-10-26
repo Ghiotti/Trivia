@@ -50,6 +50,7 @@ class HomePresenter {
 
             trivia.participantOne = weakSelf.playerOneName
             trivia.participantTwo = weakSelf.playerTwoName
+            weakSelf.processTrivia(trivia: trivia)
             weakSelf.view.onGetTrivia(trivia: trivia, message: "Start with:\n \(weakSelf.playerOneName)")
         }
     }
@@ -62,6 +63,16 @@ class HomePresenter {
     func setPlayerTwoName(name: String?) {
         playerTwoName = name ?? ""
         validateStartTrivia()
+    }
+
+    private func processTrivia(trivia: Trivia) {
+        for question in trivia.questions! {
+            question.correctAnswer = String(htmlEncodedString: question.correctAnswer!)
+            question.question = String(htmlEncodedString: question.question ?? "")
+            for index in 0...(question.incorrectAnswers!.count - 1) {
+                question.incorrectAnswers![index] = String(htmlEncodedString: question.incorrectAnswers![index])!
+            }
+        }
     }
 
     private func isValidName(name: String?) -> Bool {

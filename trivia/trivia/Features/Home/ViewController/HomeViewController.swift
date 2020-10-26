@@ -56,6 +56,11 @@ class HomeViewController: UIViewController {
     @IBAction func onPressStartButton(_ sender: Any) {
         presenter.onPressStartButton()
     }
+
+    @IBAction func onSelectMatchHistory(_ sender: Any) {
+        let matchHystoryViewController = MatchsHistoryTableViewController()
+        self.present(matchHystoryViewController, animated: true, completion: nil)
+    }
 }
 
 // MARK: UIPickerViewDataSource
