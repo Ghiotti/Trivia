@@ -10,15 +10,17 @@ import Foundation
 protocol HomeDelegate {
     func willCallTriviaService()
     func onServiceResponseError(message: String)
-    func onGetTrivia(trivia: Trivia)
+    func onGetTrivia(trivia: Trivia, message: String)
+    func triviaEnable()
+    func triviaDisable()
 }
 
 class HomePresenter {
 
     private let view: HomeDelegate
     private let triviaService: TriviaServiceDelegate
-    private let playerOneName = ""
-    private let playerTwoName = ""
+    private var playerOneName = ""
+    private var playerTwoName = ""
 
     init(view: HomeDelegate, triviaService: TriviaServiceDelegate) {
         self.view = view
@@ -28,7 +30,7 @@ class HomePresenter {
     func onPressStartButton() {
         view.willCallTriviaService()
 
-        triviaService.fetchTrivia(category: 1) { [weak self] (trivia, error) in
+        triviaService.fetchTrivia() { [weak self] (trivia, error) in
             guard let weakSelf = self else {
                 return
             }
@@ -46,9 +48,39 @@ class HomePresenter {
                 return
             }
 
-            weakSelf.view.onGetTrivia(trivia: trivia)
+            trivia.participantOne = weakSelf.playerOneName
+            trivia.participantTwo = weakSelf.playerTwoName
+            weakSelf.view.onGetTrivia(trivia: trivia, message: "Start with:\n \(weakSelf.playerOneName)")
         }
     }
 
-    
+    func setPlayerOneName(name: String?) {
+        playerOneName = name ?? ""
+        validateStartTrivia()
+    }
+
+    func setPlayerTwoName(name: String?) {
+        playerTwoName = name ?? ""
+        validateStartTrivia()
+    }
+
+    private func isValidName(name: String?) -> Bool {
+        guard let name = name else {
+            return false
+        }
+
+        if name.trimmingCharacters(in: CharacterSet(charactersIn: "")).isEmpty {
+            return false
+        }
+
+        return true
+    }
+
+    private func validateStartTrivia() {
+        if isValidName(name: playerOneName) && isValidName(name: playerTwoName) {
+            view.triviaEnable()
+        } else {
+            view.triviaDisable()
+        }
+    }
 }

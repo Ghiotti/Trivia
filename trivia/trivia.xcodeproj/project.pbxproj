@@ -30,6 +30,10 @@
 		D4926E7B25443B2B0085CA72 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D4926E7925443B2B0085CA72 /* LaunchScreen.storyboard */; };
 		D4926E8625443B2B0085CA72 /* triviaTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4926E8525443B2B0085CA72 /* triviaTests.swift */; };
 		D4926E9125443B2B0085CA72 /* triviaUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4926E9025443B2B0085CA72 /* triviaUITests.swift */; };
+		D4A693E7254633E6007007E2 /* UIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4A693E6254633E6007007E2 /* UIView.swift */; };
+		D4A693ED254634A7007007E2 /* RoundedButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4A693EC254634A7007007E2 /* RoundedButton.swift */; };
+		D4A693F525463506007007E2 /* UIViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4A693F425463506007007E2 /* UIViewController.swift */; };
+		D4A693FB25463B3B007007E2 /* QuestionnaireCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4A693FA25463B3B007007E2 /* QuestionnaireCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -84,6 +88,10 @@
 		D4926E8C25443B2B0085CA72 /* triviaUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = triviaUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		D4926E9025443B2B0085CA72 /* triviaUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = triviaUITests.swift; sourceTree = "<group>"; };
 		D4926E9225443B2B0085CA72 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		D4A693E6254633E6007007E2 /* UIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIView.swift; sourceTree = "<group>"; };
+		D4A693EC254634A7007007E2 /* RoundedButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundedButton.swift; sourceTree = "<group>"; };
+		D4A693F425463506007007E2 /* UIViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewController.swift; sourceTree = "<group>"; };
+		D4A693FA25463B3B007007E2 /* QuestionnaireCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestionnaireCell.swift; sourceTree = "<group>"; };
 		E2EA9572557C7927C741E82E /* Pods_trivia_triviaTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_trivia_triviaTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -165,6 +173,7 @@
 		D441CCFD2546105C0034DE8C /* ViewController */ = {
 			isa = PBXGroup;
 			children = (
+				D4A693F925463B2A007007E2 /* Cell */,
 				D441CCFE2546106A0034DE8C /* Questionnaire.storyboard */,
 				D441CD0D254619210034DE8C /* QuestionnaireViewController.swift */,
 			);
@@ -175,6 +184,8 @@
 			isa = PBXGroup;
 			children = (
 				D441CD07254616190034DE8C /* UIColor.swift */,
+				D4A693E6254633E6007007E2 /* UIView.swift */,
+				D4A693F425463506007007E2 /* UIViewController.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -284,6 +295,7 @@
 		D4926E6D25443B290085CA72 /* trivia */ = {
 			isa = PBXGroup;
 			children = (
+				D4A693EB25463490007007E2 /* Views */,
 				D483F83A2544560300488B82 /* Util */,
 				D483F810254443EA00488B82 /* Model */,
 				D483F805254442E400488B82 /* Features */,
@@ -313,6 +325,22 @@
 				D4926E9225443B2B0085CA72 /* Info.plist */,
 			);
 			path = triviaUITests;
+			sourceTree = "<group>";
+		};
+		D4A693EB25463490007007E2 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				D4A693EC254634A7007007E2 /* RoundedButton.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		D4A693F925463B2A007007E2 /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				D4A693FA25463B3B007007E2 /* QuestionnaireCell.swift */,
+			);
+			path = Cell;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -531,7 +559,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D4A693E7254633E6007007E2 /* UIView.swift in Sources */,
 				D483F831254454AC00488B82 /* TriviaService.swift in Sources */,
+				D4A693F525463506007007E2 /* UIViewController.swift in Sources */,
 				D483F8232544536F00488B82 /* NetworkManager.swift in Sources */,
 				D483F81E25444D0700488B82 /* Question.swift in Sources */,
 				D441CCF825460AC00034DE8C /* HomePresenter.swift in Sources */,
@@ -539,8 +569,10 @@
 				D483F8452545FE5900488B82 /* BaseModel.swift in Sources */,
 				D4926E6F25443B290085CA72 /* AppDelegate.swift in Sources */,
 				D483F81325444B0B00488B82 /* Trivia.swift in Sources */,
+				D4A693FB25463B3B007007E2 /* QuestionnaireCell.swift in Sources */,
 				D441CCEF254608F70034DE8C /* HomeViewController.swift in Sources */,
 				D441CD08254616190034DE8C /* UIColor.swift in Sources */,
+				D4A693ED254634A7007007E2 /* RoundedButton.swift in Sources */,
 				D441CD0E254619210034DE8C /* QuestionnaireViewController.swift in Sources */,
 				D4926E7125443B290085CA72 /* SceneDelegate.swift in Sources */,
 				D441CD14254619FE0034DE8C /* QuestionnairePresenter.swift in Sources */,

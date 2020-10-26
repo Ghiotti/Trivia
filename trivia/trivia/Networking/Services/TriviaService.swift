@@ -9,14 +9,13 @@ import Foundation
 
 protocol TriviaServiceDelegate {
 
-    func fetchTrivia(category: Int, onComplete: @escaping (Trivia?, Error?) -> Void)
+    func fetchTrivia(onComplete: @escaping (Trivia?, Error?) -> Void)
 }
 
-class TriviaService: TriviaServiceDelegate {
+extension NetworkManager: TriviaServiceDelegate {
 
-    func fetchTrivia(category: Int, onComplete: @escaping (Trivia?, Error?) -> Void) {
+    func fetchTrivia(onComplete: @escaping (Trivia?, Error?) -> Void) {
         let parameters: [String: Any] = ["amount": Constants.Trivia.numberOfQuestions,
-                                         "category": category,
                                          "type": Constants.Trivia.typeOfQuestion]
 
         _ = APIClient().getEntity(endpoint: Constants.Endpoints.baseUrl, parameters: parameters, completion: { (questions, error) in

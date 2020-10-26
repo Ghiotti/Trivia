@@ -11,6 +11,9 @@ import ObjectMapper
 class Trivia: BaseModel {
 
     var questions: [Question]?
+    var participantOne = ""
+    var participantTwo = ""
+    var participantOneFinis = false
 
     required convenience init?(map: Map) {
         self.init()

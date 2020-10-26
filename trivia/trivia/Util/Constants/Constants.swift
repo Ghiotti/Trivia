@@ -14,7 +14,7 @@ struct Constants {
     }
 
     struct Trivia {
-        static let numberOfQuestions = 10
+        static let numberOfQuestions = 20
         static let typeOfQuestion = "multiple"
     }
 }

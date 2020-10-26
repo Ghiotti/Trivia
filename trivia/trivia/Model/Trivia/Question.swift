@@ -16,6 +16,7 @@ class Question: Mappable {
     var question: String?
     var correctAnswer: String?
     var incorrectAnswers: [String]?
+    var result = false
 
     required init?(map: Map) {}
 
