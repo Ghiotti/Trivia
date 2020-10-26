@@ -26,7 +26,7 @@ $ pod setup
 For more information go to www.cocoapods.org
 
 3. Restart the terminal and check if it was successfully installed running “pod --version”.
-4. Before opening Xcode, from the terminal in root project folder (/SeguritechApp) run the following command on your project directory:
+4. Before opening Xcode, from the terminal in root project folder (/trivia) run the following command on your project directory:
 
 $ pod install
 
